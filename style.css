@@ -1,0 +1,44 @@
+.card {
+    border-radius: 20px;
+    background: whitesmoke;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100%;
+}
+.card img {
+    width: 100%;
+    height: 450px;
+    display: block;
+    object-fit: cover;
+}
+.card-info {
+    padding: 20px;
+}   
+.card-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+.card-info p {
+    margin: 0;
+    font-size: 18px;
+    color: #666;
+}
+body {
+   font-family: 'segoe ui', Verdana, Tahoma, Geneva, sans-serif;
+    background: #f1cbcb;
+    padding-top: 50px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
