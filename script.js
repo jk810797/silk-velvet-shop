@@ -1,28 +1,3 @@
-/// Функция инициализации магазина (кнопки)
-function initShop() {
-    const countElement = document.getElementById('card-count');
-    let count = 0;
-
-    document.querySelectorAll('.card').forEach(card => {
-        if (!card.querySelector('.buy-btn')) {
-            const btn = document.createElement('button');
-            btn.className = 'buy-btn';
-            btn.textContent = 'Buy';
-            
-            btn.onclick = () => {
-                count++;
-                if(countElement) {
-                    countElement.textContent = count;
-                    countElement.classList.remove('bump');
-                    void countElement.offsetWidth; // Рестарт анимации
-                    countElement.classList.add('bump');
-                }
-            };
-            card.append(btn);
-        }
-    });
-}
-
 // Функция для хамелеона
 function handleChameleon() {
     const logo = document.querySelector('.logo');
@@ -30,8 +5,8 @@ function handleChameleon() {
 
     const scrollPos = window.scrollY;
 
-    // Твой интервал 25-500 пикселей
-    if (scrollPos > 25 && scrollPos < 500) {
+    // Твой интервал 30-600 пикселей
+    if (scrollPos > 30 && scrollPos < 600) {
         logo.style.setProperty('color', '#f1cbcb', 'important');
     } else {
         logo.style.setProperty('color', '#332222', 'important');
@@ -40,8 +15,6 @@ function handleChameleon() {
 
 // Запуск всего при загрузке
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. Рисуем кнопки
-    initShop();
 
     // 2. Сайдбар
     const menuBtn = document.getElementById('menuBtn');
