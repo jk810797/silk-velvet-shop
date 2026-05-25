@@ -6,24 +6,23 @@ function handleChameleon() {
 
     const scrollPos = window.scrollY;
 
-    // 1. Хамелеон для логотипа (твоя исходная логика)
-    if (scrollPos > 30 && scrollPos < 600) {
+    // Dark mood
+    const darkStart = 1000; 
+    const darkEnd = 2100;
+
+    if (scrollPos >= darkStart && scrollPos <= darkEnd) {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+    }
+
+    // Logo
+
+    if ((scrollPos > 30 && scrollPos < 600) || (scrollPos >= darkStart && scrollPos < darkEnd)) {
         logo.style.setProperty('color', '#f1cbcb', 'important');
     } else {
         logo.style.setProperty('color', '#332222', 'important');
     } 
-
-
-    // 2. ПЕРЕХОД ФОНА ХАМЕЛЕОН
-    const triggerPoint = 1050; // Точка, где фон меняется полностью
-
-    if (scrollPos > triggerPoint) {
-        // Листаем ВНИЗ — плавно включаем тёмный режим
-        body.classList.add('dark-mode');
-    } else {
-        // Листаем ВВЕРХ — МГНОВЕННО выключаем тёмный режим
-        body.classList.remove('dark-mode');
-    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -46,3 +45,17 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('scroll', handleChameleon);
+
+window.addEventListener('load', () => {
+    const track = document.querySelector('.conveyor-track');
+    if (!track) return;
+
+    gsap.set(".conveyor-track", { xPercent: -50 });
+
+    gsap.to(".conveyor-track", {
+        xPercent: 0,    
+        duration: 60,   
+        ease: "none",   
+        repeat: -1     
+    });
+});
